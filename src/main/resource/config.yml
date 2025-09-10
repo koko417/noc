@@ -1,0 +1,20 @@
+classrooms:
+  - name: ClassA
+    url: "https://classroom.google.com/c/AAA"
+    patterns:
+      - type: regex
+        pattern: '"id"\\s*:\\s*"([^"]+)"'
+        output: classA_ids.txt
+      - type: jsonpath
+        path: "$.messages[*].text"
+        output: classA_msgs.txt
+
+  - name: ClassB
+    url: "https://classroom.google.com/c/BBB"
+    patterns:
+      - type: regex
+        pattern: '"id"\\s*:\\s*"([^"]+)"'
+        output: classB_ids.txt
+      - type: jsonpath
+        path: "$.data.details.info"
+        output: classB_info.txt
